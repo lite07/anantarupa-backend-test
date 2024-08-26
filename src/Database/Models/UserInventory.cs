@@ -10,6 +10,14 @@ namespace Anantarupa.Database.Models
         public int ItemId { get; set; }
         public int Quantity { get; set; }
 
+        public UserInventory(int inventoryId, int userId, int itemId, int quantity)
+        {
+            UserInventoryId = inventoryId;
+            UserId = userId;
+            ItemId = itemId;
+            Quantity = quantity;
+        }
+
         public UserInventory(int userId, int itemId, int quantity)
         {
             UserId = userId;

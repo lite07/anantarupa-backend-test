@@ -64,7 +64,7 @@ namespace Anantarupa.Services
                 }
                 else
                 {
-                    userOwnedItem = new UserInventory(userId, itemId, 1);
+                    userOwnedItem = new UserInventory(_LastGeneratedUserInventoryId() + 1, userId, itemId, 1);
                     await _db.AddAsync(userOwnedItem);
                 }
 
@@ -93,6 +93,15 @@ namespace Anantarupa.Services
         private IQueryable<UserCurrency> _GetUserCurrencies(int userId)
         {
             return _db.UserCurrencies.Include("CurrencyTypeNavigation").Where(userCurrency => userCurrency.UserId == userId);
+        }
+
+        private int _LastGeneratedUserInventoryId()
+        {
+            var lastEntry = _db.UserInventories.OrderByDescending(inventory => inventory.UserInventoryId).FirstOrDefault();
+            
+            if(lastEntry == null) return 0;
+
+            return lastEntry.UserInventoryId;
         }
     }
 }
