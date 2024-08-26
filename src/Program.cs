@@ -1,3 +1,4 @@
+using System.Runtime.Intrinsics.X86;
 using Anantarupa.Database;
 using Anantarupa.Dto;
 using Anantarupa.Services;
@@ -21,6 +22,12 @@ app.MapGet("api/items/{id}", async(int id, GameContext db) => {
     if(itemEntity == null) return Results.NotFound($"Item with id: {id} does not exist");
 
     return Results.Ok(ItemDto.FromEntity(itemEntity));
+});
+
+app.MapGet("api/shop/items", async(GameContext db) => {
+    var shopItems = await db.ShopItems.Include("Item").Include("CurrencyTypeNavigation").Select(shopItem => ShopItemDto.FromEntity(shopItem)).ToListAsync();
+
+    return Results.Ok(shopItems);
 });
 
 app.MapGet("api/users", async (GameContext db) =>
