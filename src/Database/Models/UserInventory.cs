@@ -5,10 +5,17 @@ namespace Anantarupa.Database.Models
 {
     public partial class UserInventory
     {
-        public long UserInventoryId { get; set; }
-        public long UserId { get; set; }
-        public long ItemId { get; set; }
-        public long Quantity { get; set; }
+        public int UserInventoryId { get; set; }
+        public int UserId { get; set; }
+        public int ItemId { get; set; }
+        public int Quantity { get; set; }
+
+        public UserInventory(int userId, int itemId, int quantity)
+        {
+            UserId = userId;
+            ItemId = itemId;
+            Quantity = quantity;
+        }
 
         public virtual Item Item { get; set; } = null!;
         public virtual UserDatum User { get; set; } = null!;

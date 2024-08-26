@@ -7,9 +7,9 @@ namespace Anantarupa.Dto
         public int Id { get; set; }
         public string Name { get; set;}
 
-        public ItemDto(long id, string name)
+        public ItemDto(int id, string name)
         {
-            Id = (int)id;
+            Id = id;
             Name = name;
         }
 

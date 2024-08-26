@@ -5,10 +5,10 @@ namespace Anantarupa.Database.Models
 {
     public partial class UserCurrency
     {
-        public long UserCurrencyId { get; set; }
-        public long UserId { get; set; }
-        public long? CurrencyType { get; set; }
-        public long? Amount { get; set; }
+        public int UserCurrencyId { get; set; }
+        public int UserId { get; set; }
+        public int? CurrencyType { get; set; }
+        public int? Amount { get; set; }
 
         public virtual Currency? CurrencyTypeNavigation { get; set; }
         public virtual UserDatum User { get; set; } = null!;

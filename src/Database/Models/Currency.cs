@@ -11,7 +11,7 @@ namespace Anantarupa.Database.Models
             UserCurrencies = new HashSet<UserCurrency>();
         }
 
-        public long CurrencyId { get; set; }
+        public int CurrencyId { get; set; }
         public string CurrencyName { get; set; } = null!;
 
         public virtual ICollection<ShopItem> ShopItems { get; set; }

@@ -11,7 +11,7 @@ namespace Anantarupa.Database.Models
             UserInventories = new HashSet<UserInventory>();
         }
 
-        public long UserId { get; set; }
+        public int UserId { get; set; }
         public string Username { get; set; } = null!;
         public byte[]? JoinDate { get; set; }
 

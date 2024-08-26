@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-
 namespace Anantarupa.Database.Models
 {
     public partial class Item
@@ -11,7 +10,7 @@ namespace Anantarupa.Database.Models
             UserInventories = new HashSet<UserInventory>();
         }
 
-        public long ItemId { get; set; }
+        public int ItemId { get; set; }
         public string ItemName { get; set; } = null!;
 
         public virtual ICollection<ShopItem> ShopItems { get; set; }
